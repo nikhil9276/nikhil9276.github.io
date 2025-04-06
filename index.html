@@ -1,75 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nikhil Kumar | Data Analyst</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nikhil Kumar | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
   <header>
     <nav>
-      <div class="logo">Nikhil Kumar</div>
-      <ul class="nav-links">
+      <h2>Nikhil Kumar</h2>
+      <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#github">GitHub</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="Nikhil's_Resume.pdf" download class="btn">Download Resume</a></li>
       </ul>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>Hey, I'm <span class="highlight">Nikhil</span></h1>
-    <p>Aspiring Data Analyst | Python • SQL • Power BI • Web Scraping</p>
+    <h1>Hi, I'm <span class="highlight">Nikhil Kumar</span></h1>
+    <p><span id="typed-text"></span></p>
   </section>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I love working with data to extract meaningful stories. I specialize in Python, SQL, Power BI, Excel Dashboards, and Web Scraping. I aim to turn insights into impact.</p>
+    <p>I’m a passionate developer and future data analyst with a love for Python, AI, and data-driven insights. Always curious and learning new things!</p>
   </section>
 
   <section id="skills">
     <h2>Skills</h2>
-    <div class="skills-list">
-      <span>Python</span>
-      <span>SQL</span>
-      <span>Power BI</span>
-      <span>Excel</span>
-      <span>Web Scraping</span>
-      <span>Pandas</span>
-      <span>Matplotlib</span>
-    </div>
+    <ul>
+      <li>Python</li>
+      <li>Data Analysis</li>
+      <li>Machine Learning</li>
+      <li>SQL</li>
+      <li>Streamlit</li>
+    </ul>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
-    <div class="project">
-      <h3>📊 EV Sales Dashboard</h3>
-      <p>Power BI dashboard analyzing EV sales and adoption across India by state and year.</p>
-    </div>
-    <div class="project">
-      <h3>🕸️ Flipkart Web Scraper</h3>
-      <p>Python-based scraper using BeautifulSoup to collect product, rating, and price data.</p>
-    </div>
-  </section>
-
-  <section id="github">
-    <h2>GitHub Stats</h2>
-    <img src="https://github-readme-stats.vercel.app/api?username=nikhil9276&show_icons=true&theme=radical" alt="GitHub Stats" />
-  </section>
-
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:nikhil9276@gmail.com">nikhil9276@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/nikhil9276" target="_blank">linkedin.com/in/nikhil9276</a></p>
-    <p>GitHub: <a href="https://github.com/nikhil9276" target="_blank">github.com/nikhil9276</a></p>
+    <ul>
+      <li>📊 EV Analysis Dashboard (Streamlit)</li>
+      <li>🔐 AI-Powered Ransomware Detection</li>
+      <li>✍️ Handwritten Digit Recognition</li>
+    </ul>
   </section>
 
   <footer>
-    <p>&copy; 2025 Nikhil Kumar. Designed with ❤️</p>
+    <p>© 2025 Nikhil Kumar | Portfolio</p>
   </footer>
+
+  <script>
+    var typed = new Typed("#typed-text", {
+      strings: [
+        "🚀 Future Data Analyst",
+        "💻 Python Enthusiast",
+        "🧠 AI Explorer",
+        "📊 Data Visualizer"
+      ],
+      typeSpeed: 60,
+      backSpeed: 40,
+      backDelay: 1500,
+      loop: true
+    });
+  </script>
 </body>
 </html>
