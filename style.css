@@ -6,18 +6,22 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
+  background: #0d1117;
+  color: #c9d1d9;
+}
+
+a {
+  color: #58a6ff;
+  text-decoration: none;
 }
 
 header {
-  background: #222;
-  color: #fff;
+  background: #161b22;
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
 
 nav {
@@ -27,96 +31,88 @@ nav {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  color: #00ffd5;
+  color: #58a6ff;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 1.2rem;
+  list-style: none;
+  gap: 1.5rem;
 }
 
-.nav-links li a {
-  text-decoration: none;
-  color: #fff;
+.nav-links a {
   font-weight: 500;
-  transition: color 0.3s ease;
+  color: #c9d1d9;
+  transition: 0.3s ease;
 }
 
-.nav-links li a:hover {
-  color: #00ffd5;
+.nav-links a:hover {
+  color: #58a6ff;
 }
 
 .hero {
-  background: linear-gradient(to right, #00ffd5, #00c6ff);
-  padding: 4rem 2rem;
   text-align: center;
-  animation: fadeIn 1s ease-in-out;
+  padding: 4rem 2rem;
+  background: linear-gradient(120deg, #161b22, #1f2937);
 }
 
 .hero h1 {
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .hero .highlight {
+  background: #58a6ff;
   color: #fff;
-  background: #222;
-  padding: 0.2rem 0.6rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 5px;
 }
 
 section {
-  padding: 2rem;
+  padding: 3rem 2rem;
 }
 
-section h2 {
+h2 {
   font-size: 2rem;
-  color: #00c6ff;
   margin-bottom: 1rem;
+  color: #58a6ff;
 }
 
 .skills-list {
-  list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
-.skills-list li {
-  background: #e0f7fa;
-  padding: 0.5rem 1rem;
+.skills-list span {
+  background: #21262d;
+  padding: 0.6rem 1rem;
   border-radius: 8px;
-  font-weight: 600;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  font-weight: bold;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
 }
 
 .project {
   margin-bottom: 1.5rem;
-  background: #fff;
+  background: #161b22;
   padding: 1rem;
-  border-left: 5px solid #00c6ff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-left: 5px solid #58a6ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+img {
+  margin-top: 1rem;
+  max-width: 100%;
+  border-radius: 10px;
 }
 
 footer {
-  background: #222;
-  color: #aaa;
+  background: #161b22;
   text-align: center;
   padding: 1rem;
-  margin-top: 2rem;
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  margin-top: 3rem;
+  color: #8b949e;
 }
