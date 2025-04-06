@@ -3,70 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nikhil Kumar | Portfolio</title>
+  <title>Nikhil Kumar Portfolio</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
   <header>
-    <nav>
-      <h2>Nikhil Kumar</h2>
-      <ul>
+    <nav class="navbar">
+      <div class="logo">Nikhil Kumar</div>
+      <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="Nikhil's_Resume.pdf" download class="btn">Download Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="Nikhil-Kumar-Resume.pdf" target="_blank">Resume</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Hi, I'm <span class="highlight">Nikhil Kumar</span></h1>
-    <p><span id="typed-text"></span></p>
+  <section id="about" class="section">
+    <h1>About Me</h1>
+    <p>I am Nikhil Kumar, a passionate frontend developer. I love building responsive websites with clean UI and UX.</p>
   </section>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I’m a passionate developer and future data analyst with a love for Python, AI, and data-driven insights. Always curious and learning new things!</p>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Python</li>
-      <li>Data Analysis</li>
-      <li>Machine Learning</li>
-      <li>SQL</li>
-      <li>Streamlit</li>
+  <section id="skills" class="section">
+    <h1>Tech Stack & Tools</h1>
+    <ul class="skills">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>Git</li>
+      <li>GitHub</li>
+      <li>VS Code</li>
     </ul>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li>📊 EV Analysis Dashboard (Streamlit)</li>
-      <li>🔐 AI-Powered Ransomware Detection</li>
-      <li>✍️ Handwritten Digit Recognition</li>
-    </ul>
+  <section id="projects" class="section">
+    <h1>Projects</h1>
+    <div class="project-card">
+      <img src="project1.png" alt="Project Image">
+      <h3>Project Title</h3>
+      <p>Short description about the project.</p>
+      <div class="btn-group">
+        <a href="https://github.com/nikhil9276/project1" target="_blank">GitHub</a>
+        <a href="https://project-deployed-link.com" target="_blank">Live Demo</a>
+      </div>
+    </div>
+    <!-- Add more project cards similarly -->
+  </section>
+
+  <section id="github" class="section">
+    <h1>GitHub Stats</h1>
+    <img src="https://github-readme-stats.vercel.app/api?username=nikhil9276&show_icons=true" alt="GitHub Stats">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=nikhil9276" alt="GitHub Streak">
+    <img src="https://ghchart.rshah.org/nikhil9276" alt="GitHub Calendar">
+  </section>
+
+  <section id="contact" class="section">
+    <h1>Contact Me</h1>
+    <p>Email: nikhil@example.com</p>
+    <p>Phone: +91-XXXXXXXXXX</p>
+    <a href="https://linkedin.com/in/nikhil9276" target="_blank">LinkedIn</a>
+    <a href="https://github.com/nikhil9276" target="_blank">GitHub</a>
   </section>
 
   <footer>
-    <p>© 2025 Nikhil Kumar | Portfolio</p>
+    <p>&copy; 2025 Nikhil Kumar. All rights reserved.</p>
   </footer>
-
-  <script>
-    var typed = new Typed("#typed-text", {
-      strings: [
-        "🚀 Future Data Analyst",
-        "💻 Python Enthusiast",
-        "🧠 AI Explorer",
-        "📊 Data Visualizer"
-      ],
-      typeSpeed: 60,
-      backSpeed: 40,
-      backDelay: 1500,
-      loop: true
-    });
-  </script>
 </body>
 </html>
