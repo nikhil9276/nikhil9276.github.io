@@ -2,87 +2,107 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: white;
   line-height: 1.6;
 }
 
 header {
-  background: #0a192f;
-  padding: 20px;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.nav-links {
-  list-style: none;
+nav h2 {
+  font-size: 1.8rem;
+  color: #fcd34d;
+}
+
+nav ul {
   display: flex;
   gap: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-.section {
-  padding: 40px;
-  background: white;
-  margin: 20px;
-  border-radius: 8px;
-}
-
-.skills {
   list-style: none;
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
 }
 
-.skills li {
-  background: #e0e0e0;
-  padding: 8px 12px;
-  border-radius: 5px;
-}
-
-.project-card {
-  border: 1px solid #ccc;
-  padding: 16px;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-
-.project-card img {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.btn-group a {
-  text-decoration: none;
-  background: #007bff;
+nav a {
   color: white;
-  padding: 8px 14px;
-  margin: 10px 5px;
-  border-radius: 5px;
-  display: inline-block;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #fcd34d;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px 60px;
+  background: #1a1a2e;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+}
+
+#typed-text {
+  font-weight: 500;
+  color: #fcd34d;
+}
+
+.highlight {
+  color: #fcd34d;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fcd34d;
+}
+
+section p,
+section li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+ul {
+  padding-left: 20px;
 }
 
 footer {
   text-align: center;
   padding: 20px;
-  background: #0a192f;
-  color: white;
+  background: #111;
+  font-size: 0.9rem;
+}
+
+.btn {
+  background-color: #fcd34d;
+  color: #111;
+  padding: 8px 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #eab308;
 }
