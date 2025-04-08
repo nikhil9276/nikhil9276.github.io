@@ -106,3 +106,52 @@ footer {
 .btn:hover {
   background-color: #eab308;
 }
+
+/* Projects */
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background-color: rgba(252, 211, 77, 0.1);
+}
+
+.project-card h3 {
+  color: #fcd34d;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  color: #ddd;
+  margin-bottom: 10px;
+}
+
+.project-link {
+  color: #fcd34d;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #eab308;
+}
+
+/* Animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
