@@ -15,9 +15,24 @@
       padding: 0.75rem 1rem;
       margin: 0.5rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      flex-basis: calc(50% - 1rem); /* Adjust as needed for layout */
-      max-width: calc(50% - 1rem);
+      flex-basis: calc(33.33% - 1rem); /* Adjust for more skills per row */
+      max-width: calc(33.33% - 1rem);
       transition: transform 0.2s ease-in-out;
+      box-sizing: border-box; /* Ensure padding doesn't affect width */
+    }
+
+    @media (max-width: 768px) {
+      .skill-item {
+        flex-basis: calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .skill-item {
+        flex-basis: 100%;
+        max-width: 100%;
+      }
     }
 
     .skill-item:hover {
@@ -92,7 +107,15 @@
         <div class="skill-bar-container"><div class="skill-bar" data-skill="85"></div></div>
       </li>
       <li class="skill-item">
-        <span class="skill-label">Data Analysis</span>
+        <span class="skill-label">SQL</span>
+        <div class="skill-bar-container"><div class="skill-bar" data-skill="80"></div></div>
+      </li>
+      <li class="skill-item">
+        <span class="skill-label">Excel</span>
+        <div class="skill-bar-container"><div class="skill-bar" data-skill="70"></div></div>
+      </li>
+      <li class="skill-item">
+        <span class="skill-label">Power BI</span>
         <div class="skill-bar-container"><div class="skill-bar" data-skill="75"></div></div>
       </li>
       <li class="skill-item">
@@ -100,12 +123,8 @@
         <div class="skill-bar-container"><div class="skill-bar" data-skill="70"></div></div>
       </li>
       <li class="skill-item">
-        <span class="skill-label">SQL</span>
-        <div class="skill-bar-container"><div class="skill-bar" data-skill="80"></div></div>
-      </li>
-      <li class="skill-item">
-        <span class="skill-label">Streamlit</span>
-        <div class="skill-bar-container"><div class="skill-bar" data-skill="65"></div></div>
+        <span class="skill-label">Data Analysis</span>
+        <div class="skill-bar-container"><div class="skill-bar" data-skill="78"></div></div>
       </li>
     </ul>
   </section>
