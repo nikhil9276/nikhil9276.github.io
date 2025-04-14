@@ -47,22 +47,177 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    position: relative; /* For underline animation */
+    overflow: hidden; /* Clip the pseudo-element */
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #5cb85c;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li a:hover::before {
+    transform: scaleX(1);
+}
+
+body.dark-theme nav ul li a {
+    color: #f0f0f0;
+}
+
+body.dark-theme nav ul li a::before {
+    background-color: #4CAF50;
+}
+
+body.dark-theme nav ul li a:hover::before {
+    transform: scaleX(1);
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+body.dark-theme nav ul li a:hover {
+    color: #bbb;
+}
+
+.btn {
+    background-color: #5cb85c;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #4cae4c;
+    transform: scale(1.05);
+}
+
+body.dark-theme .btn {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+body.dark-theme .btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.hero {
+    background-color: #e9ecef;
+    padding: 5rem 20px;
+    text-align: center;
+    transition: background-color 0.3s ease; /* For theme switching */
+}
+
+body.dark-theme .hero {
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.highlight {
+    color: #5cb85c;
+}
+
+body.dark-theme .highlight {
+    color: #4CAF50;
+}
+
+#typed-text {
+    font-size: 1.2rem;
+    color: #555;
+    transition: color 0.3s ease; /* For theme switching */
+}
+
+body.dark-theme #typed-text {
+    color: #ccc;
+}
+
+section {
+    padding: 3rem 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: background-color 0.3s ease, color 0.3s ease; /* For theme switching */
+}
+
+body.dark-theme section {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease; /* For theme switching */
+}
+
+body.dark-theme section h2 {
+    color: #f0f0f0;
+}
+
+section h2::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: #5cb85c;
+}
+
+body.dark-theme section h2::before {
+    background-color: #4CAF50;
+}
+
+#about p {
+    line-height: 1.8;
+}
+
+#skills ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-nav ul li {
+#skills ul li {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 0.75rem 1rem;
     margin: 0.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease-in-out, background-color 0.3s ease, color 0.3s ease;
-    flex-basis: calc(33.33% - 1rem); /* Adjust for more skills per row */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Added shadow transition */
+    flex-basis: calc(33.33% - 1rem);
     max-width: calc(33.33% - 1rem);
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
-    color: #333; /* Changed text color to dark grey */
+    box-sizing: border-box;
+    color: #333;
 }
 
 @media (max-width: 768px) {
@@ -80,20 +235,22 @@ nav ul li {
 }
 
 #skills ul li:hover {
-    transform: translateY(-3px);
-    background-color: #f9f9f9;
+    transform: translateY(-3px) scale(1.05); /* Slight scale on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
 }
 
 body.dark-theme #skills ul li {
     background-color: #2c2c2c;
     border-color: #555;
-    color: #f0f0f0; /* Text color in dark mode remains white/light */
+    color: #f0f0f0;
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
 }
 
 body.dark-theme #skills ul li:hover {
     background-color: #333;
     color: #ddd;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
 }
 
 #projects {
@@ -114,12 +271,12 @@ body.dark-theme #projects {
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease-in-out, background-color 0.3s ease, color 0.3s ease;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease, color 0.3s ease, box-shadow 0.2s ease-in-out; /* Added shadow transition */
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    background-color: #eee;
+    transform: translateY(-5px) scale(1.02); /* Slight scale on project hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* More pronounced shadow on project hover */
 }
 
 body.dark-theme .project-card {
@@ -132,6 +289,8 @@ body.dark-theme .project-card {
 body.dark-theme .project-card:hover {
     background-color: #333;
     color: #ddd;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
 }
 
 .project-card h3 {
@@ -150,11 +309,12 @@ body.dark-theme .project-card h3 {
     margin-top: 1rem;
     color: #007bff;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease-in-out;
 }
 
 .project-link:hover {
     color: #0056b3;
+    transform: translateX(5px); /* Slight movement on link hover */
 }
 
 body.dark-theme .project-link {
@@ -163,6 +323,7 @@ body.dark-theme .project-link {
 
 body.dark-theme .project-link:hover {
     color: #42a5f5;
+    transform: translateX(5px);
 }
 
 footer {
@@ -207,18 +368,23 @@ body.dark-theme footer {
     padding: 0.75rem 1rem;
     cursor: pointer;
     opacity: 0.8;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.2s ease-in-out;
     font-size: 1rem;
     z-index: 100; /* Ensure it's above other content */
 }
 
 #scroll-to-top:hover {
     opacity: 1;
+    transform: translateY(-2px);
 }
 
 body.dark-theme #scroll-to-top {
     background-color: #4CAF50;
     color: #fff;
+}
+
+body.dark-theme #scroll-to-top:hover {
+    transform: translateY(-2px);
 }
 
 /* Theme Switch Button Styles */
@@ -233,18 +399,23 @@ body.dark-theme #scroll-to-top {
     padding: 0.75rem 1rem;
     cursor: pointer;
     opacity: 0.8;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.2s ease-in-out;
     font-size: 1rem;
     z-index: 101; /* Ensure it's above other elements */
 }
 
 #theme-toggle:hover {
     opacity: 1;
+    transform: scale(1.05);
 }
 
 body.dark-theme #theme-toggle {
     background-color: #f0f0f0;
     color: #333;
+}
+
+body.dark-theme #theme-toggle:hover {
+    transform: scale(1.05);
 }
 
 /* Styles for the skill bars themselves */
