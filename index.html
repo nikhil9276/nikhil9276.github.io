@@ -6,6 +6,60 @@
   <title>Nikhil Kumar | Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <style>
+    /* Added CSS for skill bars */
+    .skill-item {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      flex-basis: calc(50% - 1rem); /* Adjust as needed for layout */
+      max-width: calc(50% - 1rem);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-3px);
+    }
+
+    .skill-label {
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    .skill-bar-container {
+      background-color: #eee;
+      border-radius: 3px;
+      height: 8px;
+      overflow: hidden;
+    }
+
+    .skill-bar {
+      background-color: #5cb85c;
+      height: 100%;
+      width: 0%; /* Initial width */
+      border-radius: 3px;
+      transition: width 0.8s ease-in-out;
+    }
+
+    body.dark-theme .skill-item {
+      background-color: #2c2c2c;
+      border-color: #555;
+      color: #f0f0f0;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark-theme .skill-bar-container {
+      background-color: #333;
+    }
+
+    body.dark-theme .skill-bar {
+      background-color: #4CAF50;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -32,12 +86,27 @@
 
   <section id="skills">
     <h2>Skills</h2>
-    <ul>
-      <li>Python</li>
-      <li>Data Analysis</li>
-      <li>Machine Learning</li>
-      <li>SQL</li>
-      <li>Streamlit</li>
+    <ul style="display: flex; flex-wrap: wrap; justify-content: center;">
+      <li class="skill-item">
+        <span class="skill-label">Python</span>
+        <div class="skill-bar-container"><div class="skill-bar" data-skill="85"></div></div>
+      </li>
+      <li class="skill-item">
+        <span class="skill-label">Data Analysis</span>
+        <div class="skill-bar-container"><div class="skill-bar" data-skill="75"></div></div>
+      </li>
+      <li class="skill-item">
+        <span class="skill-label">Machine Learning</span>
+        <div class="skill-bar-container"><div class="skill-bar" data-skill="70"></div></div>
+      </li>
+      <li class="skill-item">
+        <span class="skill-label">SQL</span>
+        <div class="skill-bar-container"><div class="skill-bar" data-skill="80"></div></div>
+      </li>
+      <li class="skill-item">
+        <span class="skill-label">Streamlit</span>
+        <div class="skill-bar-container"><div class="skill-bar" data-skill="65"></div></div>
+      </li>
     </ul>
   </section>
 
@@ -67,7 +136,11 @@
     <p>© 2025 Nikhil Kumar | Portfolio</p>
   </footer>
 
+  <button id="scroll-to-top">↑</button>
+  <button id="theme-toggle">Dark Mode</button>
+
   <script>
+    // Typed.js initialization
     var typed = new Typed("#typed-text", {
       strings: [
         "🚀 Future Data Analyst",
@@ -79,6 +152,75 @@
       backSpeed: 40,
       backDelay: 1500,
       loop: true
+    });
+
+    // Scroll to Top button functionality
+    const scrollToTopButton = document.getElementById("scroll-to-top");
+
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        scrollToTopButton.style.display = "block";
+      } else {
+        scrollToTopButton.style.display = "none";
+      }
+    });
+
+    scrollToTopButton.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    // Skill bar animation
+    const skillBars = document.querySelectorAll('.skill-bar');
+
+    function animateSkills() {
+      skillBars.forEach(bar => {
+        const skillLevel = bar.dataset.skill;
+        bar.style.width = skillLevel + '%';
+      });
+    }
+
+    const skillsSection = document.getElementById('skills');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateSkills();
+          observer.unobserve(skillsSection); // Animate only once
+        }
+      });
+    }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+
+    observer.observe(skillsSection);
+
+    // Fade-in animation for project cards (triggered on scroll)
+    const projectCards = document.querySelectorAll('.project-card');
+
+    function checkFadeIn() {
+      projectCards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (cardTop < windowHeight - 50) { // Adjust offset as needed
+          card.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkFadeIn);
+    checkFadeIn(); // Initial check on page load
+
+    // Dark/Light Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      if (body.classList.contains('dark-theme')) {
+        themeToggle.textContent = 'Light Mode';
+      } else {
+        themeToggle.textContent = 'Dark Mode';
+      }
     });
   </script>
 </body>
