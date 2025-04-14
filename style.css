@@ -183,10 +183,27 @@ body.dark-theme section h2::before {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     margin: 0.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease-in-out, background-color 0.3s ease, color 0.3s ease;
+    flex-basis: calc(33.33% - 1rem); /* Adjust for more skills per row */
+    max-width: calc(33.33% - 1rem);
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+@media (max-width: 768px) {
+    #skills ul li {
+        flex-basis: calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 500px) {
+    #skills ul li {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
 }
 
 #skills ul li:hover {
@@ -258,3 +275,124 @@ body.dark-theme .project-card h3 {
     display: inline-block;
     margin-top: 1rem;
     color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #0056b3;
+}
+
+body.dark-theme .project-link {
+    color: #64b5f6;
+}
+
+body.dark-theme .project-link:hover {
+    color: #42a5f5;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease; /* For theme switching */
+}
+
+body.dark-theme footer {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Initial state for fade-in animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Class added by JavaScript to trigger the fade-in */
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scroll to Top Button Styles */
+#scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    font-size: 1rem;
+    z-index: 100; /* Ensure it's above other content */
+}
+
+#scroll-to-top:hover {
+    opacity: 1;
+}
+
+body.dark-theme #scroll-to-top {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+/* Theme Switch Button Styles */
+#theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    font-size: 1rem;
+    z-index: 101; /* Ensure it's above other elements */
+}
+
+#theme-toggle:hover {
+    opacity: 1;
+}
+
+body.dark-theme #theme-toggle {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Styles for the skill bars themselves */
+.skill-bar-container {
+    background-color: #eee; /* Light grey background */
+    border-radius: 3px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.skill-bar {
+    background-color: #5cb85c; /* Green color for the skill level */
+    height: 100%;
+    width: 0%; /* Initial width */
+    border-radius: 3px;
+    transition: width 0.8s ease-in-out;
+}
+
+body.dark-theme .skill-bar-container {
+    background-color: #333; /* Dark grey background in dark mode */
+}
+
+body.dark-theme .skill-bar {
+    background-color: #4CAF50; /* Slightly lighter green in dark mode */
+}
