@@ -15,10 +15,11 @@
       padding: 0.75rem 1rem;
       margin: 0.5rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      flex-basis: calc(33.33% - 1rem); /* Adjust for more skills per row */
+      flex-basis: calc(33.33% - 1rem);
       max-width: calc(33.33% - 1rem);
-      transition: transform 0.2s ease-in-out;
-      box-sizing: border-box; /* Ensure padding doesn't affect width */
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      box-sizing: border-box;
+      color: #333;
     }
 
     @media (max-width: 768px) {
@@ -36,7 +37,8 @@
     }
 
     .skill-item:hover {
-      transform: translateY(-3px);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 
     .skill-label {
@@ -55,7 +57,7 @@
     .skill-bar {
       background-color: #5cb85c;
       height: 100%;
-      width: 0%; /* Initial width */
+      width: 0%;
       border-radius: 3px;
       transition: width 0.8s ease-in-out;
     }
@@ -65,6 +67,13 @@
       border-color: #555;
       color: #f0f0f0;
       box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+    }
+
+    body.dark-theme .skill-item:hover {
+      background-color: #333;
+      color: #ddd;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
     }
 
     body.dark-theme .skill-bar-container {
@@ -206,28 +215,28 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           animateSkills();
-          observer.unobserve(skillsSection); // Animate only once
+          observer.unobserve(skillsSection);
         }
       });
-    }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+    }, { threshold: 0.5 });
 
     observer.observe(skillsSection);
 
-    // Fade-in animation for project cards (triggered on scroll)
+    // Fade-in animation for project cards
     const projectCards = document.querySelectorAll('.project-card');
 
     function checkFadeIn() {
       projectCards.forEach(card => {
         const cardTop = card.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-        if (cardTop < windowHeight - 50) { // Adjust offset as needed
+        if (cardTop < windowHeight - 50) {
           card.classList.add('active');
         }
       });
     }
 
     window.addEventListener('scroll', checkFadeIn);
-    checkFadeIn(); // Initial check on page load
+    checkFadeIn();
 
     // Dark/Light Theme Toggle
     const themeToggle = document.getElementById('theme-toggle');
@@ -241,6 +250,21 @@
         themeToggle.textContent = 'Dark Mode';
       }
     });
+
+    // Section slide-in animation
+    const sections = document.querySelectorAll('section');
+    function checkSlideIn() {
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (sectionTop < windowHeight - 100) {
+          section.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkSlideIn);
+    checkSlideIn();
   </script>
 </body>
 </html>
